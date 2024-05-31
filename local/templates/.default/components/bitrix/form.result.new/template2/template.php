@@ -83,7 +83,6 @@ if($arResult["isUseCaptcha"] == "Y")
 			<b><?=GetMessage("FORM_CAPTCHA_TABLE_TITLE")?></b>
 
 
-
 			<input type="hidden" name="captcha_sid" value="<?=htmlspecialcharsbx($arResult["CAPTCHACode"]);?>" /><img src="/bitrix/tools/captcha.php?captcha_sid=<?=htmlspecialcharsbx($arResult["CAPTCHACode"]);?>" width="180" height="40" />
 
 			<?=GetMessage("FORM_CAPTCHA_FIELD_TITLE")?><?=$arResult["REQUIRED_SIGN"];?>
@@ -98,10 +97,9 @@ if($arResult["isUseCaptcha"] == "Y")
                 ознакомлены, полностью согласны и принимаете условия "Согласия на обработку персональных
                 данных";.
             </div>
-
-				<button class="form-button contact-form__bottom-button" data-success="Отправлено"
-                    data-error="Ошибка отправки">
-                <div class="form-button__title"><?=htmlspecialcharsbx(trim($arResult["arForm"]["BUTTON"]) == '' ? GetMessage("FORM_ADD") : $arResult["arForm"]["BUTTON"]);?></div>
+				<input <?=(intval($arResult["F_RIGHT"]) < 10 ? "disabled=\"disabled\"" : "");?> type="submit" name="web_form_submit" value="<?=htmlspecialcharsbx(trim($arResult["arForm"]["BUTTON"]) == '' ? GetMessage("FORM_ADD") : $arResult["arForm"]["BUTTON"]);?>" />
+				<button style="margin: 0; padding: 0;"  name="web_form_submit"  class="form-button contact-form__bottom-button" data-success="Отправлено" data-error="Ошибка отправки">
+					<div class="form-button__title" ><input <?=(intval($arResult["F_RIGHT"]) < 10 ? "disabled=\"disabled\"" : "");?> style="border: 1px solid rgba(0, 0, 0, 0.2);" class="form-button__title"  type="submit" name="web_form_submit" value="<?=htmlspecialcharsbx(trim($arResult["arForm"]["BUTTON"]) == '' ? GetMessage("FORM_ADD") : $arResult["arForm"]["BUTTON"]);?>" /></div>
             </button>
 
 		</div>
